@@ -21,10 +21,12 @@
 .TodoItem-button {
     font-size: 18pt;
     color: green;
-    margin: 10px;
+    margin: auto 10px auto 40px;
     cursor: pointer;
 }
-
+.TodoItem-right{
+    margin-left: auto;
+}
 .TodoItem-button:hover {
     color: rgb(1, 224, 1);
 }
