@@ -4,11 +4,12 @@ import PropTypes from 'prop-types'
 import { ALL_STATUSES, ACTIVE, CANCELED, COMPLETED, TodoStatus } from '../model/todo-model'
 import TodoItem from './TodoItem'
 
-const TodoList = ({ todos, setTodos }) => {
+const TodoList = ({ todos, filter, ...props }) => {
     return (
         <ul className="TodoList-items">
-            {todos.map(todo => (
-                <TodoItem key={todo.id} todo={todo} todos={todos} setTodos={setTodos}/>
+            {todos.filter(td => td.status === filter || filter === ALL_STATUSES )
+                .map(todo => (
+                <TodoItem key={todo.id} todo={todo} {...props}/>
             ))}
         </ul>
     )
