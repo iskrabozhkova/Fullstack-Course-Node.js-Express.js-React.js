@@ -17,6 +17,23 @@ class BlogsApiClient {
             body: JSON.stringify(post)
         }))
     }
+    async fetchPostById(){
+        return this.handleResponse(async ()=> fetch(`${this.baseApiUrl}/posts/${post.id}`))
+    }
+    async editPost(post){
+        return this.handleResponse(async ()=> fetch(`${this.baseApiUrl}/posts/${post.id}`, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'PUT',
+            body: JSON.stringify(post)
+        }))
+    }
+    async deletePostById(postId){
+        return this.handleResponse(async () => fetch(`${this.baseApiUrl}/posts/${post.id}`, {
+            method: 'DELETE',
+        }));
+    }
 
     async handleResponse(asyncRequestFunc){
         try{
