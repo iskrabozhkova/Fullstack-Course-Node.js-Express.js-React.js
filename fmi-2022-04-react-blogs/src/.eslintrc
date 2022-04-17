@@ -5,11 +5,11 @@
     "node": true
   },
   "extends": [
-    "prettier",
     "plugin:jsx-a11y/recommended",
     "plugin:react-hooks/recommended"
   ],
   "plugins": [
+    "airbnb",
     "prettier",
     "react",
     "react-hooks"

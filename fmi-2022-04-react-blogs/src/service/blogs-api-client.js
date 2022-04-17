@@ -8,6 +8,15 @@ class BlogsApiClient {
     async fetchPosts() {
         return this.handleResponse(async ()=> fetch(`${this.baseApiUrl}/posts`))
     }
+    async postNewPosts(post){
+        return this.handleResponse(async ()=> fetch(`${this.baseApiUrl}/posts`, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify(post)
+        }))
+    }
 
     async handleResponse(asyncRequestFunc){
         try{

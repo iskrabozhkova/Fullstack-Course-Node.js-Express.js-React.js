@@ -118,6 +118,51 @@
       ],
       "status": "ACTIVE",
       "id": 11
+    },
+    {
+      "id": 12,
+      "title": "Test",
+      "content": "some text written",
+      "tags": "tags, tags,content",
+      "imageUrl": "https://images.pexels.com/photos/1807891/pexels-photo-1807891.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "active": true,
+      "authorId": 1
+    },
+    {
+      "id": 13,
+      "title": "Some title",
+      "content": "content for post",
+      "tags": "tag, picture",
+      "imageUrl": "https://images.pexels.com/photos/1807891/pexels-photo-1807891.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "active": true,
+      "authorId": 1
+    },
+    {
+      "id": 14,
+      "title": "ppppppppp",
+      "content": "pppppppppppppppppppppppkkok",
+      "tags": "tak",
+      "imageUrl": "https://images.pexels.com/photos/1807891/pexels-photo-1807891.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "active": true,
+      "authorId": 1
+    },
+    {
+      "id": 15,
+      "title": "Some title",
+      "content": "coooooooontent",
+      "tags": "pppp",
+      "imageUrl": "https://images.pexels.com/photos/1807891/pexels-photo-1807891.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "active": true,
+      "authorId": 1
+    },
+    {
+      "id": 16,
+      "title": "Christmas",
+      "content": "christmas mood on",
+      "tags": "xmas",
+      "imageUrl": "https://images.pexels.com/photos/1866761/pexels-photo-1866761.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "active": true,
+      "authorId": 1
     }
   ],
   "comments": []

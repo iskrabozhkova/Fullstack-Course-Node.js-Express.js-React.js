@@ -10,10 +10,12 @@ import Products from './pages/Products';
 import Blog from './pages/Blog';
 import User from './pages/User';
 import NotFound from './pages/Page404';
+import BlogEdit from './pages/BlogEdit';
+import Post from './model/post-model'
 
 // ----------------------------------------------------------------------
 
-export default function Router({posts}) {
+export default function Router({posts, onAddPost}) {
   return useRoutes([
     {
       path: '/dashboard',
@@ -22,7 +24,8 @@ export default function Router({posts}) {
         { path: 'app', element: <DashboardApp /> },
         { path: 'user', element: <User /> },
         { path: 'products', element: <Products /> },
-        { path: 'blog', element: <Blog posts={posts} /> }
+        { path: 'blogs', element: <Blog posts={posts} /> },
+        { path: 'blogs/new', element: <BlogEdit post={new Post()} onAddPost={onAddPost}/> }
       ]
     },
     {
