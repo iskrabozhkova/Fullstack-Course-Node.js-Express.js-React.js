@@ -1,15 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import TodoItem from './TodoItem'
+import { TodoItem } from './TodoItem'
 
-const TodoList = ({todos}) => {
+export const TodoList = ({todos, filter, ...props}) => {
   return (
-    todos.map(todo => {
-        return <TodoItem key={todo.id} todo={todo}/>
-    })
+    <ul>{
+      todos.filter(td => filter === td.status)
+      .map(todo => {
+           <TodoItem key={todo.id} todo={todo} {...props}></TodoItem>
+      })
+    }</ul>
+    
   )
 }
-
-TodoList.propTypes = {}
-
-export default TodoList

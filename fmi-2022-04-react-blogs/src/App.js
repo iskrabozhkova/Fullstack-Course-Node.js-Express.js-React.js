@@ -4,7 +4,7 @@ import GlobalStyles from './theme/globalStyles';
 import ScrollToTop from './components/ScrollToTop';
 import { BaseOptionChartStyle } from './components/charts/BaseOptionChart';
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import blogsApiClient from './service/blogs-api-client'
 
 function App() {
@@ -18,11 +18,19 @@ function App() {
     })();
   }, [])
 
-  const addPost = async (post) => {
+  const addPost = useCallback(
+    async (post) => {
       post.authorId = 1;
       const created = await blogsApiClient.postNewPosts(post);
-      setPosts([...posts,created]);
-  }
+      setPosts(old => [...old, created]);
+    }, []
+  );
+
+  // const addPost = async (post) => {
+  //     post.authorId = 1;
+  //     const created = await blogsApiClient.postNewPosts(post);
+  //     setPosts([...posts,created]);
+  // }
 
   return (
     <ThemeConfig>
