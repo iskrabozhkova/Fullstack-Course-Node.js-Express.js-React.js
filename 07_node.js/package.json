@@ -1,0 +1,17 @@
+{
+  "name": "07_node",
+  "version": "1.0.0",
+  "main": "console-readline.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon -w ./ ./http01.js localhost 5000"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "nodemon": "^2.0.16",
+    "rxjs": "^7.5.5"
+  }
+}
