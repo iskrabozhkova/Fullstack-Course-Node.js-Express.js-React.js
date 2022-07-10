@@ -11,15 +11,21 @@ import Recipies from './components/Recipies/Recipies'
 import Login from './components/Login';
 import EditRecipe from './components/Recipies/EditRecipe'
 import { useNavigate } from "react-router-dom";
+import {register} from './API'
 
 function App() {
   const [users, setUsers] = useState([]);
   const [recipies, setRecipies] = useState([]);
 
 
-  const registerUser = user => {
-    setUsers(oldUsers =>[...oldUsers, user])
-  }
+  function registerUser(user){
+    console.log('up '+ user);
+    register(user)
+    .then(res =>{
+     const created = res.config.data;
+     setUsers(oldUsers => [...oldUsers,created])
+    })
+}
   const addRecipe = recipe => {
     setRecipies(old =>[...old, recipe])
   }
@@ -32,36 +38,36 @@ function App() {
   }
 
   //users
-  useEffect(() => {
-    if(localStorage.getItem("users")){
-      setUsers(JSON.parse(localStorage.getItem("users")));
-    }
-  }, [])
-  useEffect(() => {
-    localStorage.setItem('users', JSON.stringify(users))
-  }, [users])
-  //recipies
-  useEffect(() => {
-    if(localStorage.getItem("recipies")){
-      setRecipies(JSON.parse(localStorage.getItem("recipies")));
-    }
-  }, [])
-  useEffect(() => {
-    localStorage.setItem('recipies', JSON.stringify(recipies))
-  }, [recipies])
+  // useEffect(() => {
+  //   if(localStorage.getItem("users")){
+  //     setUsers(JSON.parse(localStorage.getItem("users")));
+  //   }
+  // }, [])
+  // useEffect(() => {
+  //   localStorage.setItem('users', JSON.stringify(users))
+  // }, [users])
+  // //recipies
+  // useEffect(() => {
+  //   if(localStorage.getItem("recipies")){
+  //     setRecipies(JSON.parse(localStorage.getItem("recipies")));
+  //   }
+  // }, [])
+  // useEffect(() => {
+  //   localStorage.setItem('recipies', JSON.stringify(recipies))
+  // }, [recipies])
   
-  const removeRecipe = (recipe) => {
-    setRecipies(oldRecipes => oldRecipes.filter(r => r.id !== recipe.id))
-  }
-  const removeUser = (user) => {
-    setUsers(oldUsers => oldUsers.filter(u => u.id !== user.id))
-  }
-  const editRecipe = (recipe) => {
-    setRecipies(oldRecipes => oldRecipes.filter(r => r.id !== recipe.id))
+  // const removeRecipe = (recipe) => {
+  //   setRecipies(oldRecipes => oldRecipes.filter(r => r.id !== recipe.id))
+  // }
+  // const removeUser = (user) => {
+  //   setUsers(oldUsers => oldUsers.filter(u => u.id !== user.id))
+  // }
+  // const editRecipe = (recipe) => {
+  //   setRecipies(oldRecipes => oldRecipes.filter(r => r.id !== recipe.id))
     //r.id !== recipe.id))
    // delete recipe.lastUserId;
     //setRecipies(old => [...old,recipe]);
-  }
+  //}
   // const removeRecipe = (recipe) => {
     
   // }
@@ -73,11 +79,11 @@ function App() {
         <Route path='/registration' element={<Registration onRegister={registerUser}/>}/>
         <Route path='/login' element={<Login onLogin={login}/>}/>
         <Route path='/' element={<HomePage/>}/>
-        <Route path='/users' element={<Users users={users} onRemoveUser={removeUser}/>}/>
+        {/* <Route path='/users' element={<Users users={users} onRemoveUser={removeUser}/>}/>
         <Route path='/recipies/new' element={<AddRecipe onAddRecipe={addRecipe}/>}/>
         <Route path='/recipies/new/:id' element={<EditRecipe onEditRecipe={editRecipe}/>}/>
         <Route path='/recipies' element={<Recipies recipies={recipies} onRemoveRecipe={removeRecipe}/>}/>
-        <Route path='/recipies/newest' element={<RecipeCards recipies={recipies}/>}/>
+  <Route path='/recipies/newest' element={<RecipeCards recipies={recipies}/>}/>*/}
       </Routes>
     </Router>
     </div>
